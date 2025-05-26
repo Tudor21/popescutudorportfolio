@@ -1,4 +1,4 @@
-# 🏆 Tudor Popescu — Developer Portfolio
+# Tudor Popescu — Developer Portfolio
 
 Welcome to my personal portfolio!  
 This site is a showcase of my projects, experience, and skills as a **generalist software developer** with a passion for building animated, responsive, and modern applications.
