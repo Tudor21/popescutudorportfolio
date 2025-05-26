@@ -5,7 +5,7 @@ This site is a showcase of my projects, experience, and skills as a **generalist
 
 ---
 
-![Portfolio Preview](/public/portfolio-preview.png)
+![Portfolio Preview](react_portfolio_pt/public/portfolio-preview.png)
 
 ---
 
