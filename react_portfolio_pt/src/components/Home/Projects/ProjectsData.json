@@ -1,0 +1,49 @@
+{
+  "projects": [
+    {
+      "title": "Interactive Learning Simulation",
+      "shortDescription": "A Unity-based simulation designed for educational purposes, offering an immersive learning experience in various subjects.",
+      "fullDescription": "The Interactive Learning Simulation is a comprehensive educational tool developed using Unity. It provides students with a hands-on learning experience by simulating real-world scenarios in a virtual environment. The project includes features such as interactive 3D models, quizzes, and tutorials that adapt to the user's progress. The simulation covers subjects like physics, biology, and chemistry, making it a versatile tool for enhancing understanding through visual and interactive content.",
+      "video": "/projects/videos/videoTemplate.mp4",
+      "mainImage": "/projects/images/imageTemplate.jpg",
+      "compatibilityIcons": ["/icons/desktop.png"],
+      "tags": ["React", "TypeScript", "Styled Components", "Redux", "Node.js"]
+    },
+    {
+      "title": "AR Marketing Experience",
+      "shortDescription": "An augmented reality application developed with Unity, designed to enhance customer engagement through interactive marketing campaigns.",
+      "fullDescription": "The AR Marketing Experience project leverages Unity's AR capabilities to create engaging marketing content that interacts with the real world. This application allows users to scan physical products or locations to trigger interactive AR experiences. The content includes 3D animations, product demonstrations, and interactive games that captivate the audience. The project was designed to be highly customizable, allowing businesses to tailor the experience to their specific brand and marketing goals.",
+      "video": "/projects/videos/videoTemplate.mp4",
+      "mainImage": "/projects/images/imageTemplate.jpg",
+      "compatibilityIcons": ["/icons/desktop.png"],
+      "tags": ["React", "TypeScript", "Styled Components", "Redux", "Node.js"]
+    },
+    {
+      "title": "3D Web Visualization",
+      "shortDescription": "A ThreeJS-powered 3D visualization tool that provides dynamic and interactive 3D graphics directly in the web browser.",
+      "fullDescription": "This project showcases the power of ThreeJS in creating complex 3D visualizations for the web. The tool is designed to render large datasets into interactive 3D models, making it ideal for use in fields such as data analysis, architecture, and education. Users can manipulate the 3D objects, view them from different angles, and interact with various data points. The project also includes features like real-time updates, smooth animations, and integration with other web technologies.",
+      "video": "/projects/videos/videoTemplate.mp4",
+      "mainImage": "/projects/images/imageTemplate.jpg",
+      "compatibilityIcons": ["/icons/desktop.png"],
+      "tags": ["React", "TypeScript", "Styled Components", "Redux", "Node.js"]
+    },
+    {
+      "title": "Cross-Platform Game",
+      "shortDescription": "A Unity-based game designed for multiple platforms, offering engaging gameplay with cross-platform synchronization.",
+      "fullDescription": "The Cross-Platform Game is a Unity project developed to be played seamlessly across various devices including desktop, mobile, and gaming consoles. The game features rich graphics, intuitive controls, and a dynamic storyline that adapts based on the player's choices. One of the key features of this project is its ability to synchronize game progress across different platforms, allowing players to continue their game on any device. The game includes multiplayer support, offering both competitive and cooperative modes.",
+      "video": "/projects/videos/videoTemplate.mp4",
+      "mainImage": "/projects/images/imageTemplate.jpg",
+      "compatibilityIcons": ["/icons/desktop.png"],
+      "tags": ["React", "TypeScript", "Styled Components", "Redux", "Node.js"]
+    },
+    {
+      "title": "Advanced Video Editing Project",
+      "shortDescription": "A professional video editing project using DaVinci Resolve, showcasing advanced techniques in color grading and visual effects.",
+      "fullDescription": "This project demonstrates the capabilities of DaVinci Resolve in creating high-quality video content. The project involved editing raw footage into a polished final product, with an emphasis on color correction, visual effects, and audio post-production. Advanced techniques such as keying, motion tracking, and dynamic transitions were used to enhance the visual storytelling. The final video was designed to engage viewers through stunning visuals and a compelling narrative, making it suitable for both commercial and artistic purposes.",
+      "video": "/projects/videos/videoTemplate.mp4",
+      "mainImage": "/projects/images/imageTemplate.jpg",
+      "compatibilityIcons": ["/icons/desktop.png"],
+      "tags": ["React", "TypeScript", "Styled Components", "Redux", "Node.js"]
+    }
+  ]
+}

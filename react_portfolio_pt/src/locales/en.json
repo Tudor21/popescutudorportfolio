@@ -1,0 +1,38 @@
+{
+  "hero": {
+    "name": "Popescu Tudor",
+    "title": "Creative Developer",
+    "subtitle": "Not just a coder. I'm a problem-solver, designer, and builder across the software spectrum."
+  },
+  "about": {
+    "title": "About Me",
+    "description": "I’m a versatile software developer passionate about building meaningful digital experiences across the stack. My skillset spans web and app development (React, TypeScript, JavaScript, C#, C++), 3D and game creation (Unity, ThreeJS), AR/VR, as well as creative work with tools like Adobe Illustrator and DaVinci Resolve."
+  },
+  "projects": {
+    "title": "My Projects",
+    "viewProject": "View Project",
+    "viewCode": "View Code"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "description": "Let's work together to create something amazing",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message"
+  },
+  "skills": {
+    "title": "Skills & Expertise",
+    "frontend": "Frontend Development",
+    "backend": "Backend Development",
+    "tools": "Tools & Technologies"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact"
+  }
+}

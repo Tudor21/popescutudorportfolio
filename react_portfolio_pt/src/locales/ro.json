@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "name": "Popescu Tudor",
+    "title": "Dezvoltator Software",
+    "subtitle": "Specializat în site-uri portfolio animate, responsive și moderne"
+  },
+  "about": {
+    "title": "Despre Mine",
+    "description": "Sunt un dezvoltator React pasionat cu expertiză în crearea de experiențe web uimitoare, animate și responsive. Mă specializez în tehnologii moderne precum React, TypeScript, styled-components și GSAP pentru a da viață designurilor.",
+    "skills": "Competențe și Tehnologii"
+  },
+  "projects": {
+    "title": "Proiectele Mele",
+    "viewProject": "Vezi Proiectul",
+    "viewCode": "Vezi Codul"
+  },
+  "contact": {
+    "title": "Să Lucrăm Împreună",
+    "description": "Să colaborăm pentru a crea ceva extraordinar",
+    "name": "Nume",
+    "email": "Email",
+    "message": "Mesaj",
+    "send": "Trimite Mesajul"
+  },
+  "navigation": {
+    "home": "Acasă",
+    "about": "Despre",
+    "projects": "Proiecte",
+    "contact": "Contact"
+  }
+}
