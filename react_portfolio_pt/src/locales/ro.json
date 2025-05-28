@@ -18,7 +18,10 @@
     "email": "Email",
     "message": "Mesaj",
     "send": "Trimite",
-    "phone": "Telefon"
+    "phone": "Telefon",
+    "sending": "Se trimite...",
+    "success": "Mesajul a fost trimis cu succes!",
+    "error": "A apărut o eroare la trimiterea mesajului. Vă rugăm să încercați din nou."
   },
   "skills": {
     "title": "Competențe",

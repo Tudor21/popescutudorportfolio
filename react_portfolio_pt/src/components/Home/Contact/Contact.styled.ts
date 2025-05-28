@@ -266,3 +266,42 @@ export const InfoItem = styled.div`
     color: #ffc107;
   }
 `;
+
+export const SuccessMessage = styled.div`
+  margin-top: 0.7rem;
+  padding: 0.8rem 1rem;
+  background: linear-gradient(90deg, #e0ffbe 10%, #b3e672 90%);
+  color: #225510;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px #b3e67233;
+  text-align: center;
+  letter-spacing: 0.2px;
+  animation: fadeIn 0.5s;
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(16px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+`;
+
+export const ErrorMessage = styled.div`
+  margin-top: 0.7rem;
+  padding: 0.8rem 1rem;
+  background: linear-gradient(90deg, #ffd1d1 10%, #ffbcbc 90%);
+  color: #9b2323;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px #ffbcbc33;
+  text-align: center;
+  letter-spacing: 0.2px;
+  animation: fadeIn 0.5s;
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(16px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+`;
+
