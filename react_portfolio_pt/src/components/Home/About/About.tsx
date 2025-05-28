@@ -31,15 +31,19 @@ const About: React.FC = () => {
       <S.Container>
         <div style={{ width: "100%" }}>
           <S.Content>
-            <S.Title ref={titleRef}> {t('about.title')}</S.Title>
+            <S.Title ref={titleRef}> {t("about.title")}</S.Title>
             <S.Description ref={descriptionRef}>
-              {t('about.description')}
+              {t("about.description")}
             </S.Description>
           </S.Content>
         </div>
         <S.Image>
           <S.ImagePlaceholder ref={imageRef}>
-            <span>Professional Developer</span>
+            <S.ProfileImage
+              src="/profile-picture.jpeg"
+              alt={t("about.title") + " - profile"}
+              draggable={false}
+            />
           </S.ImagePlaceholder>
         </S.Image>
       </S.Container>

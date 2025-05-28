@@ -1,0 +1,243 @@
+Trae Ide AI Agent: Portfolio Website Creation Guidelines
+Primary Objective:
+Generate a fully responsive, modern, and animated one-page portfolio website template as a React Vite TypeScript project. The template must use the gsap library for smooth animations and scrolling, and styled-components for all styling. Code structure and best practices must be strictly enforced.
+
+1. Project Overview & Requirements
+Framework: React (with Vite and TypeScript)
+
+Styling: styled-components
+
+Animations: gsap (GreenSock Animation Platform)
+
+Scrolling: Smooth scrolling using gsap or complementary libraries
+
+Responsiveness: Must work perfectly on all screen sizes (desktop, tablet, mobile)
+
+Project Structure:
+
+Main page folder (e.g., Home)
+
+Components folder (e.g., components)
+
+Each major UI section (Hero, About, Projects, Contact, etc.) is a separate component
+
+2. Folder & File Structure
+Main folders:
+
+bash
+Copy
+Edit
+/src
+  /pages
+    /Home
+      Home.tsx
+      Home.styled.ts
+      index.ts
+  /components
+    /ComponentName
+      ComponentName.tsx
+      ComponentName.styled.ts
+      index.ts
+File contents:
+
+ComponentName.tsx:
+
+Import styles as S
+
+Use styled components as <S.ComponentNamePart>
+
+Contain the React functional component logic and JSX
+
+ComponentName.styled.ts:
+
+Define all styled-components here
+
+Naming convention:
+
+Prefix all styled components with the component name
+
+E.g., in Hero.styled.ts: HeroWrapper, HeroTitle, HeroImage
+
+Export each styled component using a generic alias:
+
+export const HeroWrapper = styled.div\...` // Export as Wrapper`
+
+export { HeroWrapper as Wrapper }
+
+This is done for all components.
+
+index.ts:
+
+Export the main component by default: export { default } from './ComponentName'
+
+3. Naming Conventions
+Styled Components:
+
+Always use the component name as a prefix for styled-components (e.g., HeroWrapper)
+
+Always export each as a generic name (e.g., Wrapper)
+
+Import Styles:
+
+In each .tsx, import all styles as S:
+
+tsx
+Copy
+Edit
+import * as S from './ComponentName.styled'
+Use in JSX as <S.Wrapper>...</S.Wrapper>
+
+4. Component Guidelines
+Each UI section is a dedicated component
+
+Examples: Hero, About, Projects, Contact
+
+Components must be isolated and reusable
+
+Use props for dynamic content
+
+Animation logic should be in the component or in custom hooks
+
+Each component folder must contain:
+
+.tsx file for logic and markup
+
+.styled.ts for styles only
+
+index.ts for clean imports
+
+5. GSAP Animation & Smooth Scroll
+Use gsap for reveal animations, transitions, and scroll-triggered effects.
+
+Implement smooth scrolling between sections (use gsap or a compatible scroll plugin).
+
+Animate elements on mount and as they come into the viewport.
+
+6. Responsiveness & Accessibility
+Design all sections mobile-first and ensure full responsiveness.
+
+Use media queries within styled-components.
+
+Ensure all interactive elements are accessible (buttons, links, forms).
+
+Semantic HTML structure within JSX.
+
+7. Sample Component Blueprint
+Hero Section Example:
+
+bash
+Copy
+Edit
+/components/Hero
+  Hero.tsx
+  Hero.styled.ts
+  index.ts
+Hero.styled.ts
+
+typescript
+Copy
+Edit
+import styled from 'styled-components';
+
+export const HeroWrapper = styled.section`
+  /* styles */
+`;
+export const HeroTitle = styled.h1`
+  /* styles */
+`;
+// ...
+export { HeroWrapper as Wrapper, HeroTitle as Title }
+Hero.tsx
+
+typescript
+Copy
+Edit
+import React from 'react'
+import * as S from './Hero.styled'
+
+const Hero = () => (
+  <S.Wrapper>
+    <S.Title>Hi, I am Trae Ide</S.Title>
+    {/* ... */}
+  </S.Wrapper>
+)
+
+export default Hero
+index.ts
+
+typescript
+Copy
+Edit
+export { default } from './Hero'
+8. Component List for Portfolio
+Recommended initial components:
+
+Hero (main intro/banner)
+
+About (personal bio/skills)
+
+Projects (portfolio/gallery)
+
+Contact (contact form or info)
+
+Optional: Header, Footer, SocialLinks, Skills
+
+9. Code Quality & Best Practices
+TypeScript:
+
+Strongly type all props and state
+
+Styling:
+
+No inline styles, no CSS files—only styled-components
+
+GSAP:
+
+No animation logic inside styled-components—keep it in the component file or custom hooks
+
+Organization:
+
+Keep code clean, readable, and maintainable
+
+Exports:
+
+Use index.ts in every folder for clean imports
+
+10. Prompt Template for AI Use
+When generating code, always follow these instructions:
+
+You are Trae Ide, an expert React developer specializing in animated, responsive, and modern portfolio websites using React, Vite, TypeScript, styled-components, and gsap.  
+When asked to generate components, always use the described folder structure, file naming, styled-components conventions, and animation best practices outlined above.  
+All styling must be in ComponentName.styled.ts, imported as S, and styled components are exported using generic names after being declared with their full component name as a prefix.  
+All code must be strictly typed.  
+All content must be responsive and ready for production.  
+Do not generate global CSS or inline styles.  
+Always ensure the code you output is ready to copy and paste directly into a project with minimal adjustments.  
+
+11. Localization System Requirement
+The portfolio website must include a localization (i18n) system supporting both English and Romanian.
+
+Use a simple, scalable approach compatible with React and TypeScript.
+
+Store translations in separate JSON files (e.g., en.json, ro.json) inside a /locales folder at the root of src.
+
+Provide a language context/provider (LanguageProvider) that manages the current language and exposes a t function for translation lookups.
+
+All text content in components must use the localization system.
+
+Include a language switcher component for toggling between English and Romanian.
+
+Default language is English, but it must remember user preference (e.g., in localStorage).
+
+Ensure all translation keys are clearly organized and consistent across both languages.
+
+Prompt Addition (for the AI):
+
+The portfolio website you generate must have a localization system that supports both English and Romanian.  
+Store translations in `/src/locales/en.json` and `/src/locales/ro.json`.  
+Create a `LanguageProvider` that manages language state and provides a `t` function for retrieving translations.  
+All text in all components must use the `t` function for translations, never hard-code display text.  
+Implement a language switcher component for users to toggle languages, and persist their choice (e.g., in localStorage).  
+Ensure translation keys are consistently named and cover all content.
+
+End of Guidelines

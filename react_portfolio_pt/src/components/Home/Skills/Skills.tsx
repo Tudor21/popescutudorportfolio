@@ -1,9 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
+import { useLanguage } from "../../../contexts/LanguageContext";
 import * as S from "./Skills.styled";
-import skillsData from "./SkillsData.json";
+import { skillsData } from "../../../data/SkillsData";
 
 const Skills: React.FC = () => {
+  const { t } = useLanguage();
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
   const btnRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const titleRef = useRef<HTMLHeadingElement | null>(null);
@@ -119,18 +121,18 @@ const Skills: React.FC = () => {
 
   return (
     <S.Wrapper>
-      <S.Title ref={titleRef}>Skills</S.Title>
+      <S.Title ref={titleRef}>{t('skills.title')}</S.Title>
       <S.Grid ref={gridRef}>
-        {skillsData.skills.map((skill, idx) => (
+        {skillsData.map((skill, idx) => (
           <S.IconButton
-            key={skill.title + idx}
+            key={skill.translationKey}
             ref={el => { btnRefs.current[idx] = el; }}
             onClick={() => setActiveIdx(idx)}
             tabIndex={0}
-            aria-label={skill.title}
+            aria-label={t(`${skill.translationKey}.title`)}
           >
             <S.Logo>
-              <img src={skill.logoPath} alt={skill.title + " logo"} />
+              <img src={skill.logoPath} alt={t(`${skill.translationKey}.title`) + " logo"} />
             </S.Logo>
           </S.IconButton>
         ))}
@@ -143,27 +145,27 @@ const Skills: React.FC = () => {
             ref={modalRef}
             tabIndex={0}
             aria-modal="true"
-            aria-label={skillsData.skills[activeIdx].title + " details"}
+            aria-label={t(`${skillsData[activeIdx].translationKey}.title`) + " details"}
           >
             <S.CloseButton
               onClick={() => setActiveIdx(null)}
-              aria-label="Close"
+              aria-label={t("close")}
             >
               &times;
             </S.CloseButton>
             <S.IconButton tabIndex={0}>
               <S.Logo>
                 <img
-                  src={skillsData.skills[activeIdx].logoPath}
-                  alt={skillsData.skills[activeIdx].title + " logo"}
+                  src={skillsData[activeIdx].logoPath}
+                  alt={t(`${skillsData[activeIdx].translationKey}.title`) + " logo"}
                 />
               </S.Logo>
             </S.IconButton>
             <S.ExpandedTitle>
-              {skillsData.skills[activeIdx].title}
+              {t(`${skillsData[activeIdx].translationKey}.title`)}
             </S.ExpandedTitle>
             <S.ExpandedDescription>
-              {skillsData.skills[activeIdx].description}
+              {t(`${skillsData[activeIdx].translationKey}.description`)}
             </S.ExpandedDescription>
           </S.ModalPanel>
         </S.ModalOverlay>

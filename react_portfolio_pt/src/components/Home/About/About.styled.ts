@@ -191,6 +191,18 @@ export const AboutImagePlaceholder = styled.div`
   }
 `;
 
+const AboutProfileImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  z-index: 1;
+  position: relative;
+  user-select: none;
+  pointer-events: none;
+`;
+
+
 export {
   AboutWrapper as Wrapper,
   AboutContainer as Container,
@@ -199,4 +211,5 @@ export {
   AboutDescription as Description,
   AboutImage as Image,
   AboutImagePlaceholder as ImagePlaceholder,
+  AboutProfileImage as ProfileImage
 };

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import * as S from './Navbar.styled';
 import { useDeviceDetect } from '../../hooks/UseDeviceDetect';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 interface NavbarProps {
   activeSection?: string;
@@ -8,15 +9,16 @@ interface NavbarProps {
 }
 
 const navItems = [
-  { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About Me' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'contact', label: 'Contact' }
+  { id: 'home' },
+  { id: 'about' },
+  { id: 'skills' },
+  { id: 'projects' },
+  { id: 'contact' }
 ];
 
 const Navbar: React.FC<NavbarProps> = ({ activeSection = 'home', onSectionChange }) => {
   const { isMobile } = useDeviceDetect();
+  const { t } = useLanguage();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleNavClick = (sectionId: string) => {
@@ -36,7 +38,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection = 'home', onSectionChange
               $isActive={activeSection === item.id}
               onClick={() => handleNavClick(item.id)}
             >
-              <S.ButtonText>{item.label}</S.ButtonText>
+              <S.ButtonText>{t(`navigation.${item.id}`)}</S.ButtonText>
             </S.NavButton>
           ))}
         </S.Container>
@@ -48,10 +50,9 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection = 'home', onSectionChange
     <>
       <S.FabButton
         $open={mobileOpen}
-        aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+        aria-label={mobileOpen ? t('closeMenu') : t('openMenu')}
         onClick={() => setMobileOpen((v) => !v)}
-      >
-      </S.FabButton>
+      />
       <S.MobileMenuOverlay $open={mobileOpen} onClick={() => setMobileOpen(false)} />
       <S.MobileMenu $open={mobileOpen}>
         {navItems.map((item) => (
@@ -61,7 +62,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection = 'home', onSectionChange
             onClick={() => handleNavClick(item.id)}
             tabIndex={mobileOpen ? 0 : -1}
           >
-            {item.label}
+            {t(`navigation.${item.id}`)}
           </S.MobileNavButton>
         ))}
       </S.MobileMenu>
