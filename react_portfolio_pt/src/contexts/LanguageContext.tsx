@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import type { ReactNode } from 'react';
 import enTranslations from '../locales/en.json';
 import roTranslations from '../locales/ro.json';
 
@@ -35,15 +36,22 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
 
   const t = (key: string): string => {
     const keys = key.split('.');
-    let value: any = translations[language];
-    
+    let value: unknown = translations[language];
+  
     for (const k of keys) {
-      value = value?.[k];
+      if (typeof value === 'object' && value !== null && k in value) {
+        value = (value as Record<string, unknown>)[k];
+      } else {
+        return key;
+      }
     }
-    
-    return value || key;
+  
+    if (typeof value === 'string') {
+      return value;
+    }
+    return key;
   };
-
+  
   const value = {
     language,
     setLanguage,

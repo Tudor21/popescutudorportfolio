@@ -2,8 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import * as S from "./Contact.styled";
 import { useLanguage } from "../../../contexts/LanguageContext";
-import emailjs from '@emailjs/browser'; // 1. Import EmailJS
-
+import emailjs from '@emailjs/browser';
 interface FormData {
   name: string;
   email: string;
@@ -105,6 +104,7 @@ const Contact: React.FC = () => {
       setSuccess(t("contact.success") || "Mesajul a fost trimis cu succes!");
       setFormData({ name: "", email: "", message: "" });
     } catch (err) {
+      console.error(err);
       setError(t("contact.error") || "A apărut o eroare la trimiterea mesajului.");
     } finally {
       setIsSubmitting(false);

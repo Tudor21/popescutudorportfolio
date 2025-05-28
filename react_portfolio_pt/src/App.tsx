@@ -1,4 +1,3 @@
-import React from "react";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { GlobalStyles } from "./styles/GlobalStyles";
 import Home from "./pages/Home";
