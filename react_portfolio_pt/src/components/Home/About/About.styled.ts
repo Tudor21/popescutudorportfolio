@@ -179,8 +179,8 @@ export const AboutImagePlaceholder = styled.div`
   }
   
   @media (max-width: 480px) {
-    width: 230px;
-    height: 230px;
+    width: 200px;
+    height: 200px;
     font-size: 1rem;
   }
 
