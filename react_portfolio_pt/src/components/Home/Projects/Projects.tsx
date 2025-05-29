@@ -1,35 +1,37 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import * as S from "./Projects.styled";
-import projectsData from "./ProjectsData.json";
+// import projectsData from "./ProjectsData.json";
 import { useLanguage } from "../../../contexts/LanguageContext";
 gsap.registerPlugin(ScrollTrigger);
 
-interface Project {
-  title: string;
-  shortDescription: string;
-  fullDescription: string;
-  video: string;
-  mainImage: string;
-  compatibilityIcons: string[];
-  tags: string[];
-}
+// interface Project {
+//   title: string;
+//   shortDescription: string;
+//   fullDescription: string;
+//   video: string;
+//   mainImage: string;
+//   compatibilityIcons: string[];
+//   tags: string[];
+// }
 
 const Projects: React.FC = () => {
   const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
+  const comingSoonRef = useRef<HTMLDivElement>(null);
 
-  const projects: Project[] = projectsData.projects;
+  // const projects: Project[] = projectsData.projects;
 
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
 
     gsap.set(titleRef.current, { opacity: 0, y: 50 });
+    gsap.set(comingSoonRef.current, { opacity: 0, scale: 0.8, y: 30 });
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -45,6 +47,22 @@ const Projects: React.FC = () => {
       y: 0,
       duration: 0.8,
       ease: "power2.out",
+    })
+    .to(comingSoonRef.current, {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      duration: 0.6,
+      ease: "back.out(1.7)",
+    }, "-=0.3");
+
+    // Continuous animation for the coming soon text
+    gsap.to(comingSoonRef.current, {
+      scale: 1.05,
+      duration: 2,
+      ease: "power2.inOut",
+      yoyo: true,
+      repeat: -1,
     });
 
     return () => {
@@ -56,6 +74,36 @@ const Projects: React.FC = () => {
     <S.Wrapper ref={sectionRef} id="projects">
       <S.Container>
         <S.Title ref={titleRef}>{t("projects.title")}</S.Title>
+        
+        {/* Coming Soon Section */}
+        <div 
+          ref={comingSoonRef}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            minHeight: '300px',
+            textAlign: 'center',
+          }}
+        >
+          <div
+            style={{
+              fontSize: '3rem',
+              fontWeight: 900,
+              background: 'linear-gradient(90deg, #ffd600 14%, #ffc107 68%, #fffbe7 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              textShadow: '0 4px 20px rgba(255, 214, 0, 0.3)',
+              letterSpacing: '2px',
+            }}
+          >
+            Coming Soon
+          </div>
+        </div>
+
+        {/* Commented out Swiper section */}
+        {/*
         <S.SwiperWrapper>
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
@@ -122,6 +170,7 @@ const Projects: React.FC = () => {
             ))}
           </Swiper>
         </S.SwiperWrapper>
+        */}
       </S.Container>
     </S.Wrapper>
   );
