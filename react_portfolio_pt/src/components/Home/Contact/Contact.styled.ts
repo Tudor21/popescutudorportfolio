@@ -129,6 +129,8 @@ export const Input = styled.input`
     border-color: #ffd600;
     background: rgba(255, 253, 231, 0.13);
     box-shadow: 0 0 0 2px #ffd60055;
+    outline: none;
+    box-shadow: none;
   }
 
   @media (max-width: 700px) {
@@ -164,6 +166,8 @@ export const Textarea = styled.textarea`
     border-color: #ffd600;
     background: rgba(255, 253, 231, 0.13);
     box-shadow: 0 0 0 2px #ffd60055;
+    outline: none;
+    box-shadow: none;
   }
 
   @media (max-width: 700px) {
@@ -242,7 +246,10 @@ export const InfoItem = styled.div`
   flex-direction: column;
   align-items: center;
   box-shadow: 0 2px 10px #ffd6000f;
-
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
   h4 {
     margin: 0 0 0.1rem 0;
     font-size: 0.99rem;

@@ -30,7 +30,7 @@ export const Title = styled.h2`
   background-clip: text;
 
   @media (max-width: 380px) {
-  font-size: 2.5rem;
+    font-size: 2.5rem;
   }
 `;
 
@@ -191,10 +191,21 @@ export const CloseButton = styled.button`
   z-index: 12;
   opacity: 0.86;
   transition: color 0.16s, opacity 0.18s;
-  &:hover,
-  &:focus {
-    color: #fffde7;
-    opacity: 1;
+
+  &:hover {
     outline: none;
+    box-shadow: none;
   }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `;

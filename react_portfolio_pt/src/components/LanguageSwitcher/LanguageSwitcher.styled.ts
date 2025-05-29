@@ -48,6 +48,9 @@ export const LanguageSwitcherButton = styled.button<{ $isActive: boolean }>`
     box-shadow:
       0 4px 18px rgba(255, 193, 7, 0.13),
       0 0 0 1px rgba(255, 193, 7, 0.16) inset;
+    box-shadow: 0 0 0 2px #ffd60055;
+    outline: none;
+    box-shadow: none;
   }
 
   &:active {

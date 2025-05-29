@@ -33,6 +33,11 @@ const AudioButton = styled.button`
   transition: filter 0.25s;
   outline: none;
 
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
   @media (max-width: 600px) {
     width: 36px;
     height: 36px;

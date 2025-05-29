@@ -58,9 +58,11 @@ const NavbarButton = styled.button<{ $isActive: boolean }>`
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
 
+    &:focus {
+    outline: none;
+    box-shadow: none;
+  }
     &::before {
       content: "";
       position: absolute;
@@ -124,6 +126,13 @@ const ActiveIndicator = styled.div<{ $isActive: boolean }>`
     border-radius: 1px;
     transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: ${$isActive ? 1 : 0};
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
   `}
 `;
 
@@ -174,6 +183,12 @@ const FabButton = styled.button<{ $open: boolean }>`
       rgba(255, 221, 51, 0.04) 90%,
       rgba(255, 221, 51, 0) 100%
     );
+
+    &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
     z-index: 0;
     filter: blur(6px);
     opacity: 0.75;
