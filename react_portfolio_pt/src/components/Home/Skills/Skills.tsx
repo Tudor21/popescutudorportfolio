@@ -41,6 +41,9 @@ const Skills: React.FC = () => {
         pointerEvents: "none"
       });
     } else {
+      // Kill any running animations before starting new ones
+      gsap.killTweensOf([titleRef.current, gridRef.current]);
+      
       gsap.to(titleRef.current, {
         opacity: 1,
         y: 0,
@@ -62,19 +65,33 @@ const Skills: React.FC = () => {
 
   // Animate grid buttons in and out with stagger
   useEffect(() => {
+    // Kill all existing button animations first
+    gsap.killTweensOf(btnRefs.current);
+    
     if (activeIdx === null) {
+      // Reset all buttons to ensure clean state
+      btnRefs.current.forEach((el) => {
+        if (el) {
+          gsap.set(el, { 
+            pointerEvents: "auto",
+            clearProps: "opacity,y,scale" 
+          });
+        }
+      });
+      
       // Show all buttons with entrance animation
       gsap.fromTo(
-        btnRefs.current,
+        btnRefs.current.filter(Boolean),
         { opacity: 0, y: 50, scale: 0.85 },
         {
           opacity: 1,
           y: 0,
           scale: 1,
           stagger: 0.08,
-          duration: 0.01,
+          duration: 0.4, // Increased from 0.01 which was too fast
           ease: "power3.out",
-          delay: 0.08
+          delay: 0.08,
+          pointerEvents: "auto"
         }
       );
     } else {
@@ -86,7 +103,8 @@ const Skills: React.FC = () => {
             opacity: 0,
             scale: 0.93,
             duration: 0.27,
-            ease: "power2.in"
+            ease: "power2.in",
+            pointerEvents: "none"
           });
         } else {
           gsap.to(el, {
@@ -101,11 +119,10 @@ const Skills: React.FC = () => {
         }
       });
     }
-    // Cleanup to reset all
+    
+    // Cleanup function
     return () => {
-      btnRefs.current.forEach((el) => {
-        if (el) gsap.set(el, { clearProps: "all" });
-      });
+      gsap.killTweensOf(btnRefs.current);
     };
   }, [activeIdx]);
 
@@ -119,6 +136,14 @@ const Skills: React.FC = () => {
     return () => window.removeEventListener("keydown", handler);
   }, [activeIdx]);
 
+  // Enhanced click handler with animation state check
+  const handleButtonClick = (idx: number) => {
+    // Only allow clicks if no modal is currently open
+    if (activeIdx === null) {
+      setActiveIdx(idx);
+    }
+  };
+
   return (
     <S.Wrapper>
       <S.Title ref={titleRef}>{t('skills.title')}</S.Title>
@@ -127,9 +152,10 @@ const Skills: React.FC = () => {
           <S.IconButton
             key={skill.translationKey}
             ref={el => { btnRefs.current[idx] = el; }}
-            onClick={() => setActiveIdx(idx)}
+            onClick={() => handleButtonClick(idx)}
             tabIndex={0}
             aria-label={t(`${skill.translationKey}.title`)}
+            style={{ pointerEvents: 'auto' }} // Ensure default state
           >
             <S.Logo>
               <img src={skill.logoPath} alt={t(`${skill.translationKey}.title`) + " logo"} />
